@@ -1,0 +1,501 @@
+registerWorld({
+  id: 'm2', n: 2, title: 'Primeros pasos con Python', subtitle: 'Escribe tus primeros programas de verdad',
+  emoji: '🐍', color: '#3b82f6',
+  intro: 'Llegó la hora de escribir código real. En este mundo conocerás Python, el lenguaje que usarás en todo el curso. Guardarás datos, harás cuentas, tomarás decisiones y repetirás tareas. Paso a paso, sin afán.',
+  badge: { name: 'Domadora de Python', emoji: '🐍' },
+  lessons: [
+    {
+      id: 'm2-l1', title: '¿Qué es Python?', emoji: '🐍', minutes: 6,
+      learn: [
+        { title: 'Un idioma para hablar con el computador', blocks: [
+          { t: 'p', text: '**Python** es un **lenguaje de programación**: un idioma con reglas fijas para darle instrucciones al computador.' },
+          { t: 'analogy', text: 'Es como pedir un tinto en la tienda: si usas las palabras correctas, te entienden y te lo sirven.' },
+          { t: 'p', text: 'Un **programa** es una lista de instrucciones escritas en ese idioma. El computador las lee de arriba hacia abajo.' },
+        ] },
+        { title: '¿Por qué Python?', blocks: [
+          { t: 'list', items: ['Se lee casi como español o inglés sencillo.', 'Es fácil para empezar, pero lo usan profesionales.', 'Sirve para páginas web, análisis de datos, automatizar tareas e inteligencia artificial.', 'Es gratis.'] },
+          { t: 'tip', text: 'Muchos programas que usas a diario (películas recomendadas, mapas, bancos) tienen Python por dentro.' },
+        ] },
+        { title: 'Tu primer programa', blocks: [
+          { t: 'p', text: 'La instrucción `print()` le dice a Python: "muestra esto en pantalla". El texto va entre comillas.' },
+          { t: 'code', lang: 'python', code: 'print("Hola, mundo")\nprint("Estoy aprendiendo Python")', run: true },
+          { t: 'warn', text: 'Python distingue mayúsculas y minúsculas: `Print` no es lo mismo que `print`.' },
+        ] },
+      ],
+      example: {
+        title: 'Saludo de la tienda',
+        story: 'Doña Marta quiere que el computador de su tienda salude a cada cliente al abrir el día.',
+        code: { lang: 'python', code: 'print("Bienvenida a la tienda de Doña Marta")\nprint("Hoy hay arepas frescas")', run: true },
+        note: 'Cada print() escribe una línea nueva. Cambia el texto y vuelve a ejecutar.',
+      },
+      practice: [
+        { type: 'mcq', q: '¿Qué es Python?', options: ['Un lenguaje de programación para dar instrucciones al computador', 'Un programa para editar fotos', 'Un tipo de computador'], answer: 0,
+          wrong: { 1: 'Con Python se pueden crear programas de todo tipo, pero no es un editor de fotos.', 2: 'Python no es una máquina. Es un idioma que el computador entiende.' },
+          explain: 'Python es un lenguaje de programación: un idioma con reglas para dar instrucciones.', hints: ['Piensa en la palabra "lenguaje".'] },
+        { type: 'tf', q: 'Python es gratis y lo usan tanto principiantes como profesionales.', answer: true, explain: 'Así es: es gratis, fácil de leer y muy usado en el mundo laboral.' },
+        { type: 'match', q: 'Une cada concepto con su significado:', pairs: [['Programa', 'Lista de instrucciones para el computador'], ['Python', 'Un lenguaje de programación'], ['print()', 'Instrucción que muestra texto en pantalla']], explain: 'El programa es el conjunto de instrucciones, Python es el idioma y print() es una de esas instrucciones.' },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: escribe un programa que muestre en dos líneas: Hola, soy Yuli  y  Ya programo en Python', starter: '# escribe tus dos print() aquí\n',
+        tests: [{ inputs: [], output: 'Hola, soy Yuli\nYa programo en Python' }, { inputs: [], contains: ['Hola, soy Yuli', 'Ya programo en Python'] }],
+        checks: [{ re: 'print\\s*\\(', msg: 'Usa print() para mostrar cada línea.' }],
+        solution: 'print("Hola, soy Yuli")\nprint("Ya programo en Python")', hints: ['Necesitas dos print(), uno por línea.', 'El texto va entre comillas dobles.'],
+        explain: 'Cada print() muestra una línea. El texto debe ir exactamente igual, entre comillas.' },
+      summary: ['Python es un lenguaje para dar instrucciones al computador.', 'Un programa es una lista de instrucciones que se ejecutan de arriba hacia abajo.', 'print("texto") muestra texto en pantalla.'],
+    },
+    {
+      id: 'm2-l2', title: 'Instalación y entorno de trabajo', emoji: '🧰', minutes: 6,
+      learn: [
+        { title: 'Instalar Python', blocks: [
+          { t: 'p', text: 'Para programar en tu computador necesitas instalar Python. Se descarga gratis desde **python.org**.' },
+          { t: 'steps', items: ['Entra a python.org y ve a "Downloads".', 'Descarga la versión más reciente (Python 3).', 'Ábrela y marca la casilla "Add Python to PATH".', 'Pulsa "Install Now".'] },
+          { t: 'warn', text: 'Si olvidas marcar "Add Python to PATH", el computador no encontrará Python desde la terminal.' },
+        ] },
+        { title: 'Dónde escribir el código', blocks: [
+          { t: 'p', text: 'Un **editor de código** es un cuaderno especial para escribir programas. Resalta con colores y te ayuda a no equivocarte.' },
+          { t: 'table', head: ['Herramienta', 'Para qué sirve'], rows: [['IDLE', 'Viene con Python. Sencillo, ideal para empezar.'], ['VS Code', 'Editor gratis y muy popular, con extensiones.'], ['Terminal', 'Pantalla de texto donde ejecutas tus programas.']] },
+          { t: 'analogy', text: 'Python es el motor de la moto; el editor es el casco y el tablero que hacen el viaje cómodo.' },
+        ] },
+        { title: 'Guardar y ejecutar un programa', blocks: [
+          { t: 'p', text: 'Tus programas se guardan en archivos que terminan en **.py**, por ejemplo `hola.py`.' },
+          { t: 'p', text: 'En la terminal escribes el comando `python hola.py` y Python ejecuta tu archivo.' },
+        ] },
+        { title: 'Sin instalar nada: el Taller', blocks: [
+          { t: 'p', text: 'Esta app tiene un **Taller**: un lugar para probar código sin instalar nada. Escribes, pulsas Ejecutar y ves el resultado.' },
+          { t: 'tip', text: 'Usa el Taller para experimentar todo lo que quieras. Equivocarse ahí no daña nada.' },
+        ] },
+      ],
+      example: {
+        title: 'El camino de un programa',
+        story: 'Yuli escribe hola.py en VS Code, lo guarda y lo ejecuta desde la terminal. Aparece el saludo en pantalla.',
+        pseudo: '1. Escribir el código en el editor\n2. Guardar el archivo como hola.py\n3. Ejecutar: python hola.py\n4. Ver el resultado',
+        note: 'Siempre es el mismo ciclo: escribir, guardar, ejecutar, revisar.',
+      },
+      practice: [
+        { type: 'mcq', q: '¿Dónde se descarga Python gratis?', options: ['python.org', 'Solo en una tienda de computadores', 'Se compra en una licencia anual'], answer: 0,
+          wrong: { 1: 'Python es gratis y se baja de internet.', 2: 'No necesitas pagar nada por Python.' }, explain: 'La página oficial es python.org.', hints: ['Es la página oficial del lenguaje.'] },
+        { type: 'order', q: 'Ordena el ciclo para correr un programa:', items: ['Escribir el código en el editor', 'Guardar el archivo con extensión .py', 'Ejecutar el programa', 'Revisar el resultado'], explain: 'Primero escribes, luego guardas, ejecutas y por último revisas si salió lo esperado.' },
+        { type: 'tf', q: 'Para practicar en esta app necesitas instalar Python primero.', answer: false, explain: 'Falso: el Taller de la app te deja probar código sin instalar nada.' },
+      ],
+      challenge: { type: 'multi', q: '🎯 Misión: marca TODAS las herramientas donde puedes escribir código Python.', options: ['IDLE', 'VS Code', 'El Taller de esta app', 'Una calculadora de bolsillo'], answers: [0, 1, 2],
+        explain: 'IDLE, VS Code y el Taller sirven para escribir Python. Una calculadora de bolsillo no ejecuta programas.', hints: ['Tres de las cuatro opciones sirven.'] },
+      summary: ['Python se descarga gratis en python.org.', 'Los archivos de Python terminan en .py.', 'Puedes programar en IDLE, VS Code o en el Taller de la app.'],
+    },
+    {
+      id: 'm2-l3', title: 'Variables', emoji: '📦', minutes: 7,
+      learn: [
+        { title: 'Una cajita con nombre', blocks: [
+          { t: 'p', text: 'Una **variable** es una cajita con nombre donde guardas un dato para usarlo después.' },
+          { t: 'analogy', text: 'Es como la etiqueta "Arroz" en un frasco de la despensa: el nombre te dice qué hay adentro.' },
+          { t: 'code', lang: 'python', code: 'precio = 4500\nnombre = "Camila"\nprint(precio)\nprint(nombre)', run: true },
+          { t: 'tip', text: 'El signo `=` significa "guarda en", no "es igual a".' },
+        ] },
+        { title: 'Las variables pueden cambiar', blocks: [
+          { t: 'p', text: 'Puedes guardar un valor nuevo en la misma caja. El valor anterior se pierde.' },
+          { t: 'code', lang: 'python', code: 'saldo = 10000\nsaldo = 7500\nprint(saldo)', run: true },
+          { t: 'table', head: ['Línea', 'saldo vale'], rows: [['saldo = 10000', '10000'], ['saldo = 7500', '7500']] },
+        ] },
+        { title: 'Reglas para nombrar', blocks: [
+          { t: 'list', items: ['Usa letras, números y guion bajo (_).', 'No empieces con un número: `2cosas` no sirve.', 'Sin espacios: `precio_total`, no `precio total`.', 'Evita tildes y la ñ: escribe `anio`, no `año`.', 'Mayúsculas importan: `Precio` y `precio` son dos variables distintas.'] },
+          { t: 'warn', text: 'Si usas una variable antes de crearla, Python da un error llamado NameError.' },
+        ] },
+      ],
+      example: {
+        title: 'Cuenta de cuadernos',
+        story: 'Camila compra cuadernos. Guardamos el precio y la cantidad en variables y calculamos el total.',
+        code: { lang: 'python', code: 'precio = 4500\ncantidad = 3\ntotal = precio * cantidad\nprint(total)', run: true },
+        note: 'Cambia cantidad a 5 y ejecuta de nuevo: el total se ajusta solo.',
+      },
+      practice: [
+        { type: 'mcq', q: '¿Qué hace la línea  edad = 25 ?', options: ['Guarda el número 25 en la variable edad', 'Compara si edad es igual a 25', 'Imprime 25 en pantalla'], answer: 0,
+          wrong: { 1: 'Para comparar se usan dos signos igual (==), lo verás más adelante.', 2: 'Guardar no es mostrar. Para mostrar necesitas print(edad).' },
+          explain: 'El = guarda el valor de la derecha en la variable de la izquierda.', hints: ['Piensa en el = como "guarda en".'] },
+        { type: 'fill', q: 'Completa para guardar el nombre y mostrarlo:', template: '___ = "Yuli"\nprint(___)', blanks: [{ answers: ['nombre'] }, { answers: ['nombre'] }], explain: 'Se crea la variable nombre y luego se muestra con print(nombre). Debe llamarse igual en ambos lugares.', hints: ['Usa el mismo nombre en las dos líneas.'] },
+        { type: 'bug', q: 'Toca la línea que tiene el error:', code: 'precio = 3000\ncantidad = 4\nprint(Precio * cantidad)', bugLine: 3, explain: 'Se escribió Precio con P mayúscula, pero la variable se llama precio. Python distingue mayúsculas.' },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: guarda precio = 2500 y cantidad = 6 en variables, calcula el total en otra variable y muéstralo.', starter: '# crea las variables aquí\n',
+        tests: [{ inputs: [], output: '15000' }, { inputs: [], contains: ['15000'] }],
+        checks: [{ re: 'precio\\s*=', msg: 'Crea la variable precio.' }, { re: 'cantidad\\s*=', msg: 'Crea la variable cantidad.' }],
+        solution: 'precio = 2500\ncantidad = 6\ntotal = precio * cantidad\nprint(total)', hints: ['total = precio * cantidad', 'Termina con print(total).'], explain: '2500 × 6 = 15000. Las variables guardan los datos y print muestra el resultado.' },
+      summary: ['Una variable guarda un dato con un nombre.', 'El = guarda el valor de la derecha en la variable de la izquierda.', 'Los nombres no llevan espacios y Python distingue mayúsculas.'],
+    },
+    {
+      id: 'm2-l4', title: 'Tipos de datos', emoji: '🔢', minutes: 7,
+      learn: [
+        { title: 'No todos los datos son iguales', blocks: [
+          { t: 'p', text: 'Un **tipo de dato** es la clase de información que guarda una variable. Python los trata distinto.' },
+          { t: 'analogy', text: 'En la tienda hay cosas que se cuentan (3 huevos), se pesan (1,5 kg), se leen (el nombre) y se responden con sí o no (¿hay fiado?).' },
+        ] },
+        { title: 'Los cuatro tipos básicos', blocks: [
+          { t: 'table', head: ['Tipo', 'Qué guarda', 'Ejemplo'], rows: [['int', 'Números enteros', '12, 0, -5'], ['float', 'Números con decimales', '3.5, 0.19'], ['str', 'Texto (entre comillas)', '"Hola", "4500"'], ['bool', 'Verdadero o falso', 'True, False']] },
+          { t: 'warn', text: 'Los decimales usan punto, no coma: `3.5`. Y `True` y `False` van con la primera letra en mayúscula.' },
+        ] },
+        { title: 'Averiguar el tipo con type()', blocks: [
+          { t: 'code', lang: 'python', code: 'print(type(12))\nprint(type(3.5))\nprint(type("Hola"))\nprint(type(True))', run: true },
+          { t: 'warn', text: '`"4500"` con comillas es texto, no número. No puedes multiplicarlo como si fuera 4500.' },
+          { t: 'tip', text: 'Si dudas del tipo de una variable, pregúntale a Python: print(type(variable)).' },
+        ] },
+      ],
+      example: {
+        title: 'Datos de un producto',
+        story: 'Una tienda guarda de cada producto su nombre, su precio, su peso y si hay existencias.',
+        code: { lang: 'python', code: 'nombre = "Panela"\nprecio = 3800\npeso = 0.5\nhay_stock = True\nprint(type(nombre))\nprint(type(precio))\nprint(type(peso))\nprint(type(hay_stock))', run: true },
+        note: 'Cada dato tiene su tipo: str, int, float y bool.',
+      },
+      practice: [
+        { type: 'mcq', q: '¿De qué tipo es el valor 3.5 ?', options: ['int', 'float', 'str', 'bool'], answer: 1,
+          wrong: { 0: 'int es para enteros sin decimales, como 3.', 2: 'str sería "3.5" entre comillas.', 3: 'bool solo guarda True o False.' },
+          explain: 'Un número con punto decimal es de tipo float.', hints: ['Tiene parte decimal.'] },
+        { type: 'match', q: 'Une cada valor con su tipo:', pairs: [['"Bogotá"', 'str'], ['2900', 'int'], ['1.75', 'float'], ['False', 'bool']], explain: 'El texto va entre comillas (str), el entero no tiene decimales (int), el decimal es float y True/False son bool.' },
+        { type: 'tf', q: 'El valor "4500" (entre comillas) es un número entero.', answer: false, explain: 'Falso: al ir entre comillas es texto (str), aunque parezca número.' },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: crea la variable pasaje = 2900 y muestra su tipo con type().', starter: '# crea pasaje y muestra su tipo\n',
+        tests: [{ inputs: [], contains: ['int'] }, { inputs: [], output: "<class 'int'>" }],
+        checks: [{ re: 'type\\s*\\(', msg: 'Usa type() para averiguar el tipo.' }],
+        solution: 'pasaje = 2900\nprint(type(pasaje))', hints: ['print(type(variable))'], explain: 'type(pasaje) devuelve el tipo int, porque 2900 es un número entero.' },
+      summary: ['Los tipos básicos son int, float, str y bool.', 'El texto va entre comillas; los decimales usan punto.', 'type() te dice el tipo de un dato.'],
+    },
+    {
+      id: 'm2-l5', title: 'Mostrar datos con print()', emoji: '🖨️', minutes: 6,
+      learn: [
+        { title: 'print() muestra lo que quieras', blocks: [
+          { t: 'p', text: '`print()` es la **salida** de tus programas: lo que le muestras a la persona. Puede mostrar texto, números y variables.' },
+          { t: 'code', lang: 'python', code: 'producto = "Arepa"\nprecio = 1500\nprint("Producto:", producto)\nprint("Precio:", precio)', run: true },
+          { t: 'tip', text: 'Si separas varios datos con coma, print() los muestra con un espacio entre ellos.' },
+        ] },
+        { title: 'Texto contra variable', blocks: [
+          { t: 'p', text: 'Con comillas, Python muestra el texto tal cual. Sin comillas, muestra el valor de la variable.' },
+          { t: 'code', lang: 'python', code: 'ciudad = "Cali"\nprint("ciudad")\nprint(ciudad)', run: true },
+          { t: 'warn', text: 'print("ciudad") muestra la palabra ciudad. print(ciudad) muestra Cali.' },
+        ] },
+        { title: 'Personalizar: sep y end', blocks: [
+          { t: 'p', text: '`sep` cambia lo que va entre los datos. `end` cambia lo que va al final (normalmente un salto de línea).' },
+          { t: 'code', lang: 'python', code: 'print("Lunes", "Martes", "Miércoles", sep=" - ")\nprint("Total:", end=" ")\nprint(15000)', run: true },
+          { t: 'tip', text: 'Para una línea en blanco usa print() vacío. Para saltar línea dentro de un texto usa \\n.' },
+        ] },
+      ],
+      example: {
+        title: 'Recibo de la tienda',
+        story: 'Doña Marta imprime un recibo sencillo con el producto, la cantidad y el total.',
+        code: { lang: 'python', code: 'print("===== RECIBO =====")\nprint("Producto: Panela")\nprint("Cantidad:", 2)\nprint("Total:", 7600)', run: true },
+        note: 'Cada print() es una línea del recibo.',
+      },
+      practice: [
+        { type: 'input', q: 'Si escribes  print("Hola", "amiga")  ¿qué aparece en pantalla? (escribe lo que se ve, sin comillas)', answers: ['hola amiga'],
+          common: [{ re: '^holaamiga$', msg: 'Al separar con coma, print() agrega un espacio entre los datos.' }], explain: 'La coma separa los datos y print() pone un espacio entre ellos: Hola amiga.', hints: ['Los datos se muestran juntos con un espacio.'] },
+        { type: 'fill', q: 'Completa para mostrar  1-2-3 :', template: 'print(1, 2, 3, ___="-")', blanks: [{ answers: ['sep'], options: ['sep', 'end', 'tipo'] }], explain: 'sep define el separador entre los datos.', hints: ['Es lo que va ENTRE los datos.'] },
+        { type: 'mcq', q: 'Con  barrio = "Chapinero" , ¿qué muestra print("barrio") ?', options: ['barrio', 'Chapinero', 'Un error'], answer: 0,
+          wrong: { 1: 'Eso lo mostraría print(barrio), sin comillas.', 2: 'No hay error: con comillas es simplemente un texto.' }, explain: 'Con comillas es texto literal, así que muestra la palabra barrio.', hints: ['Mira si hay comillas.'] },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: con producto = "Tinto" y precio = 1200 muestra exactamente:  Producto: Tinto  y en otra línea  Precio: 1200', starter: 'producto = "Tinto"\nprecio = 1200\n',
+        tests: [{ inputs: [], output: 'Producto: Tinto\nPrecio: 1200' }, { inputs: [], contains: ['Producto: Tinto', 'Precio: 1200'] }],
+        checks: [{ re: 'print\\s*\\(\\s*"Producto:"\\s*,\\s*producto|print\\s*\\(\\s*"Producto: Tinto"', msg: 'Muestra el producto usando print().' }],
+        solution: 'producto = "Tinto"\nprecio = 1200\nprint("Producto:", producto)\nprint("Precio:", precio)', hints: ['print("Producto:", producto)'], explain: 'La coma une texto y variable con un espacio, y cada print() escribe una línea.' },
+      summary: ['print() muestra texto, números y variables.', 'Con comillas muestra texto; sin comillas muestra el valor de la variable.', 'sep y end personalizan la separación y el final.'],
+    },
+    {
+      id: 'm2-l6', title: 'Pedir datos con input()', emoji: '⌨️', minutes: 7,
+      learn: [
+        { title: 'El programa le pregunta a la persona', blocks: [
+          { t: 'p', text: '`input()` pausa el programa y espera a que la persona escriba algo. Lo que escribe es la **entrada**.' },
+          { t: 'analogy', text: 'Es como la tendera que pregunta "¿qué le sirvo?" y espera tu respuesta antes de seguir.' },
+          { t: 'code', lang: 'python', code: 'nombre = input("¿Cómo te llamas? ")\nprint("Hola,", nombre)', run: true, inputs: 'Yuli' },
+        ] },
+        { title: 'Guarda la respuesta en una variable', blocks: [
+          { t: 'p', text: 'El texto dentro de los paréntesis es el mensaje que ve la persona. La respuesta se guarda con `=`.' },
+          { t: 'tip', text: 'Termina el mensaje con un espacio para que la respuesta no quede pegada: "Nombre: ".' },
+        ] },
+        { title: 'Trampa: input() siempre da texto', blocks: [
+          { t: 'warn', text: 'Aunque escribas 25, input() lo entrega como texto "25" (tipo str), no como número.' },
+          { t: 'code', lang: 'python', code: 'edad = input("Edad: ")\nprint(type(edad))', run: true, inputs: '25' },
+          { t: 'p', text: 'Por eso aún no puedes hacer cuentas con lo que lees. En la próxima lección lo arreglamos.' },
+        ] },
+      ],
+      example: {
+        title: 'Saludo personalizado',
+        story: 'La tienda quiere saludar a cada cliente por su nombre y preguntarle de qué barrio es.',
+        code: { lang: 'python', code: 'nombre = input("Nombre: ")\nbarrio = input("Barrio: ")\nprint("Bienvenida,", nombre, "de", barrio)', run: true, inputs: 'Camila\nSuba' },
+        note: 'Cada input() espera una respuesta, en orden. Cambia las entradas y ejecuta otra vez.',
+      },
+      practice: [
+        { type: 'mcq', q: 'Si la persona escribe 30 en  x = input() , ¿de qué tipo es x ?', options: ['str (texto)', 'int (entero)', 'float (decimal)'], answer: 0,
+          wrong: { 1: 'input() nunca convierte solo: aunque escribas un número, lo entrega como texto.', 2: 'Tampoco es float: input() siempre devuelve texto.' }, explain: 'input() siempre devuelve texto (str).', hints: ['No importa lo que escriba la persona.'] },
+        { type: 'order', q: 'Ordena este programa de arriba hacia abajo:', items: ['nombre = input("Nombre: ")', 'edad = input("Edad: ")', 'print("Hola,", nombre)'], explain: 'Primero pides y guardas los datos; después los usas para mostrar el saludo.' },
+        { type: 'fill', q: 'Completa para pedir el color favorito y mostrarlo:', template: 'color = ___("Color favorito: ")\nprint(___)', blanks: [{ answers: ['input'], options: ['input', 'print', 'type'] }, { answers: ['color'] }], explain: 'input() pide el dato y se guarda en color; luego print(color) lo muestra.', hints: ['Lo que pide datos es input.'] },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: pide el nombre de un producto con input() y muestra: Producto registrado: seguido del nombre.', starter: '# pide el producto y muéstralo\n',
+        tests: [{ inputs: ['Arepa'], output: 'Producto registrado: Arepa' }, { inputs: ['Leche entera'], output: 'Producto registrado: Leche entera' }, { inputs: [''], output: 'Producto registrado:' }],
+        checks: [{ re: 'input\\s*\\(', msg: 'Usa input() para pedir el nombre.' }],
+        solution: 'producto = input()\nprint("Producto registrado:", producto)', hints: ['Guarda la respuesta: producto = input()'], explain: 'La respuesta se guarda en una variable y luego se muestra junto al texto fijo.' },
+      summary: ['input() pide un dato y espera la respuesta.', 'La respuesta se guarda en una variable.', 'input() siempre entrega texto (str), aunque escribas un número.'],
+    },
+    {
+      id: 'm2-l7', title: 'Conversión de datos', emoji: '🔄', minutes: 7,
+      learn: [
+        { title: 'Cambiar de tipo', blocks: [
+          { t: 'p', text: 'La **conversión** cambia un dato de un tipo a otro. Usas funciones con el nombre del tipo.' },
+          { t: 'table', head: ['Función', 'Hace', 'Ejemplo'], rows: [['int()', 'Convierte a entero', 'int("25") da 25'], ['float()', 'Convierte a decimal', 'float("3.5") da 3.5'], ['str()', 'Convierte a texto', 'str(25) da "25"']] },
+        ] },
+        { title: 'La combinación más usada', blocks: [
+          { t: 'p', text: 'Como input() da texto, para hacer cuentas lo envuelves en int() o float().' },
+          { t: 'code', lang: 'python', code: 'precio = int(input("Precio: "))\ncantidad = int(input("Cantidad: "))\nprint("Total:", precio * cantidad)', run: true, inputs: '4500\n3' },
+          { t: 'analogy', text: 'Es como pasar de "tres" escrito en letras al número 3 para poder sumar.' },
+        ] },
+        { title: 'Cuando la conversión falla', blocks: [
+          { t: 'warn', text: 'int("hola") no se puede: da ValueError. Tampoco int("3.5"); para eso usa float().' },
+          { t: 'code', lang: 'python', code: 'print(int(3.9))\nprint(float(7))\nprint(str(150) + " pesos")', run: true },
+          { t: 'tip', text: 'int(3.9) da 3: corta los decimales, no redondea.' },
+        ] },
+      ],
+      example: {
+        title: 'Recarga a celular',
+        story: 'Una persona recarga su celular. El programa lee el valor y cuánto tenía antes para mostrar el saldo nuevo.',
+        code: { lang: 'python', code: 'saldo = int(input())\nrecarga = int(input())\nprint(saldo + recarga)', run: true, inputs: '2000\n10000' },
+        note: 'Sin int(), el + pegaría los textos: "2000" + "10000" daría 200010000.',
+      },
+      practice: [
+        { type: 'input', q: '¿Qué muestra  print(int("5") + int("3")) ?', answers: ['8'], common: [{ re: '^53$', msg: '53 sería si los textos se pegaran. Con int() se convierten en números y se suman.' }], explain: 'int convierte "5" y "3" en números, y 5 + 3 = 8.', hints: ['Se convierten a número antes de sumar.'] },
+        { type: 'bug', q: 'Toca la línea que tiene el error:', code: 'pasaje = input()\ntotal = pasaje * 2 + 1000\nprint(total)', bugLine: 1, explain: 'pasaje queda como texto. Debe ser pasaje = int(input()) para poder calcular con él.' },
+        { type: 'mcq', q: '¿Qué convierte el texto "3.5" en un número con decimales?', options: ['float("3.5")', 'int("3.5")', 'str("3.5")'], answer: 0,
+          wrong: { 1: 'int("3.5") da error: int no acepta texto con punto decimal.', 2: 'str() convierte a texto, y "3.5" ya lo es.' }, explain: 'float() convierte texto con decimales en número.', hints: ['Quieres decimales.'] },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: lee con input() dos precios (enteros) y muestra la suma.', starter: 'precio1 = input()\nprecio2 = input()\n',
+        tests: [{ inputs: ['4500', '3200'], output: '7700' }, { inputs: ['0', '0'], output: '0' }, { inputs: ['1000000', '1'], output: '1000001' }],
+        checks: [{ re: 'int\\s*\\(', msg: 'Convierte con int() antes de sumar.' }],
+        solution: 'precio1 = int(input())\nprecio2 = int(input())\nprint(precio1 + precio2)', hints: ['Envuelve cada input() en int().'], explain: 'Con int() los textos pasan a números y la suma da un valor, no un texto pegado.' },
+      summary: ['int(), float() y str() convierten entre tipos.', 'Para hacer cuentas con input() usa int() o float().', 'int("hola") produce ValueError.'],
+    },
+    {
+      id: 'm2-l8', title: 'Operaciones matemáticas', emoji: '➗', minutes: 7,
+      learn: [
+        { title: 'Los operadores', blocks: [
+          { t: 'table', head: ['Símbolo', 'Operación', 'Ejemplo', 'Resultado'], rows: [['+', 'Suma', '7 + 2', '9'], ['-', 'Resta', '7 - 2', '5'], ['*', 'Multiplicación', '7 * 2', '14'], ['/', 'División (decimal)', '7 / 2', '3.5'], ['//', 'División entera', '7 // 2', '3'], ['%', 'Residuo (sobrante)', '7 % 2', '1'], ['**', 'Potencia', '7 ** 2', '49']] },
+          { t: 'warn', text: 'El símbolo de multiplicar es `*`, no x. Y `/` siempre da decimal.' },
+        ] },
+        { title: 'División entera y residuo', blocks: [
+          { t: 'analogy', text: 'Tienes $10.000 y el pasaje cuesta $2.900. `//` te dice cuántos pasajes alcanzan (3). `%` te dice cuánto sobra ($1.300).' },
+          { t: 'code', lang: 'python', code: 'plata = 10000\npasaje = 2900\nprint(plata // pasaje)\nprint(plata % pasaje)', run: true },
+        ] },
+        { title: 'Orden de las operaciones', blocks: [
+          { t: 'p', text: 'Python respeta el orden de las matemáticas: primero `**`, luego `* / // %`, al final `+ -`. Los paréntesis mandan.' },
+          { t: 'code', lang: 'python', code: 'print(2 + 3 * 4)\nprint((2 + 3) * 4)', run: true },
+          { t: 'tip', text: 'Ante la duda, usa paréntesis. Hacen el código más claro.' },
+        ] },
+      ],
+      example: {
+        title: 'Repartir cuadernos',
+        story: 'Hay 17 cuadernos para repartir en cajas de 5. ¿Cuántas cajas se llenan y cuántos cuadernos sobran?',
+        code: { lang: 'python', code: 'cuadernos = 17\ncajas = cuadernos // 5\nsobran = cuadernos % 5\nprint(cajas)\nprint(sobran)', run: true },
+        note: '17 // 5 = 3 cajas llenas y 17 % 5 = 2 cuadernos sueltos.',
+      },
+      practice: [
+        { type: 'input', q: '¿Cuánto da  17 // 5 ?', answers: ['3'], common: [{ re: '^3[.,]4$', msg: '3,4 es el resultado de 17 / 5. Con // solo queda la parte entera.' }], explain: '5 cabe 3 veces en 17 (15) y sobran 2.', hints: ['// es división entera.'] },
+        { type: 'match', q: 'Une cada operación con su resultado:', pairs: [['10 % 3', '1'], ['10 // 3', '3'], ['2 ** 3', '8'], ['10 / 4', '2.5']], explain: '10 % 3 es el residuo (1); 10 // 3 la parte entera (3); 2 ** 3 = 2·2·2 = 8; 10 / 4 = 2.5.' },
+        { type: 'mcq', q: '¿Cuánto da  2 + 3 * 4 ?', options: ['14', '20', '24'], answer: 0,
+          wrong: { 1: 'Eso sería (2 + 3) * 4. Primero se multiplica.', 2: 'No: 2 * 3 * 4 sería 24, pero ahí hay una suma.' }, explain: 'Primero 3 * 4 = 12, luego 2 + 12 = 14.', hints: ['La multiplicación va antes que la suma.'] },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: lee con input() los pesos que tiene una persona (entero). El pasaje cuesta 2900. Muestra en una línea cuántos pasajes puede pagar y en otra cuánto le sobra.', starter: 'pesos = int(input())\npasaje = 2900\n',
+        tests: [{ inputs: ['10000'], output: '3\n1300' }, { inputs: ['2900'], output: '1\n0' }, { inputs: ['2000'], output: '0\n2000' }],
+        checks: [{ re: '//', msg: 'Usa // para contar pasajes completos.' }, { re: '%', msg: 'Usa % para el residuo.' }],
+        solution: 'pesos = int(input())\npasaje = 2900\nprint(pesos // pasaje)\nprint(pesos % pasaje)', hints: ['pesos // pasaje da los pasajes.', 'pesos % pasaje da lo que sobra.'], explain: 'La división entera cuenta pasajes completos y el residuo es el dinero que no alcanza para otro.' },
+      summary: ['+ - * / hacen las operaciones básicas; / siempre da decimal.', '// da la parte entera de la división y % el residuo.', '** es potencia; los paréntesis cambian el orden.'],
+    },
+    {
+      id: 'm2-l9', title: 'Concatenación y f-strings', emoji: '🧵', minutes: 7,
+      learn: [
+        { title: 'Pegar textos con +', blocks: [
+          { t: 'p', text: '**Concatenar** es unir textos. Con `+` se pegan tal cual, sin espacio automático.' },
+          { t: 'code', lang: 'python', code: 'nombre = "Camila"\nprint("Hola, " + nombre + "!")', run: true },
+          { t: 'warn', text: 'No puedes pegar texto con número: "Total: " + 500 da TypeError. Usa str(500).' },
+        ] },
+        { title: 'f-strings: la forma cómoda', blocks: [
+          { t: 'p', text: 'Un **f-string** es un texto con una f antes de las comillas. Lo que va entre llaves `{ }` se reemplaza por su valor.' },
+          { t: 'code', lang: 'python', code: 'producto = "Panela"\ntotal = 7600\nprint(f"Compraste {producto} por ${total}")', run: true },
+          { t: 'analogy', text: 'Es como una factura con espacios en blanco que se llenan con los datos de cada cliente.' },
+        ] },
+        { title: 'Cálculos y decimales dentro', blocks: [
+          { t: 'p', text: 'Dentro de las llaves puedes hacer cuentas y dar formato: `:.2f` muestra 2 decimales.' },
+          { t: 'code', lang: 'python', code: 'precio = 4500\ncantidad = 3\nprint(f"Total: {precio * cantidad}")\nprint(f"IVA: {precio * 0.19:.2f}")', run: true },
+          { t: 'tip', text: 'Con f-string no necesitas str(): las llaves convierten solas los números.' },
+        ] },
+      ],
+      example: {
+        title: 'Mensaje de la recarga',
+        story: 'Después de recargar, el sistema envía un mensaje con el nombre y el saldo nuevo.',
+        code: { lang: 'python', code: 'nombre = input()\nsaldo = int(input())\nprint(f"Hola {nombre}, tu saldo es ${saldo}")', run: true, inputs: 'Luisa\n12000' },
+        note: 'Una sola línea mezcla texto y variables, sin comas ni signos +.',
+      },
+      practice: [
+        { type: 'mcq', q: 'Con  edad = 20 , ¿qué línea muestra  Tengo 20 años ?', options: ['print(f"Tengo {edad} años")', 'print("Tengo {edad} años")', 'print("Tengo " + edad + " años")'], answer: 0,
+          wrong: { 1: 'Sin la f, Python muestra las llaves tal cual: Tengo {edad} años.', 2: 'edad es número: no se puede pegar con + sin str(edad). Da TypeError.' }, explain: 'La f antes de las comillas hace que {edad} se reemplace por 20.', hints: ['Falta una letra antes de las comillas.'] },
+        { type: 'fill', q: 'Completa el f-string:', template: 'nombre = "Ana"\nprint(___"Hola {___}")', blanks: [{ answers: ['f'] }, { answers: ['nombre'] }], explain: 'La f activa las llaves, y adentro va el nombre de la variable.', hints: ['La letra es f.'] },
+        { type: 'bug', q: 'Toca la línea que tiene el error:', code: 'total = 9500\nmensaje = "Debes pagar $" + total\nprint(mensaje)', bugLine: 2, explain: 'No se puede sumar texto con un número. Usa str(total) o un f-string: f"Debes pagar ${total}".' },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: lee producto, precio y cantidad (precio y cantidad enteros). Muestra con un f-string:  Producto: X | Total: $N', starter: 'producto = input()\nprecio = int(input())\ncantidad = int(input())\n',
+        tests: [{ inputs: ['Panela', '3800', '2'], output: 'Producto: Panela | Total: $7600' }, { inputs: ['Huevo', '500', '0'], output: 'Producto: Huevo | Total: $0' }],
+        checks: [{ re: 'f["\']', msg: 'Usa un f-string (una f antes de las comillas).' }],
+        solution: 'producto = input()\nprecio = int(input())\ncantidad = int(input())\nprint(f"Producto: {producto} | Total: ${precio * cantidad}")', hints: ['f"Producto: {producto} | Total: ${...}"', 'Dentro de las llaves puedes multiplicar.'], explain: 'El f-string mezcla texto fijo con variables y hasta cuentas dentro de las llaves.' },
+      summary: ['+ pega textos, pero no mezcla texto con números.', 'Un f-string (f"...{variable}...") inserta valores fácilmente.', 'Dentro de las llaves puedes calcular y dar formato como :.2f.'],
+    },
+    {
+      id: 'm2-l10', title: 'Condicionales: if, elif, else', emoji: '🔀', minutes: 8,
+      learn: [
+        { title: 'Tomar decisiones', blocks: [
+          { t: 'p', text: 'Un **condicional** hace que el programa elija un camino según una condición.' },
+          { t: 'analogy', text: 'Si llueve, llevas paraguas; si no, sales así. El programa decide igual.' },
+          { t: 'code', lang: 'python', code: 'edad = 17\nif edad >= 18:\n    print("Puedes votar")\nelse:\n    print("Aún no puedes votar")', run: true },
+          { t: 'warn', text: 'Después de los dos puntos `:` el código va indentado (con 4 espacios). Sin eso, hay IndentationError.' },
+        ] },
+        { title: 'Comparadores y elif', blocks: [
+          { t: 'table', head: ['Símbolo', 'Significa'], rows: [['==', 'igual a'], ['!=', 'diferente de'], ['>  <', 'mayor / menor que'], ['>=  <=', 'mayor o igual / menor o igual']] },
+          { t: 'code', lang: 'python', code: 'nota = 3.5\nif nota >= 4.5:\n    print("Excelente")\nelif nota >= 3.0:\n    print("Aprobada")\nelse:\n    print("Reprobada")', run: true },
+          { t: 'warn', text: 'Para comparar usa `==` (dos signos). Un solo `=` guarda un valor.' },
+        ] },
+        { title: 'Combinar condiciones: and, or, not', blocks: [
+          { t: 'list', items: ['`and`: se cumplen las dos.', '`or`: basta con que se cumpla una.', '`not`: invierte el resultado.'] },
+          { t: 'code', lang: 'python', code: 'compra = 60000\nes_cliente = True\nif compra >= 50000 and es_cliente:\n    print("Tienes descuento")', run: true },
+        ] },
+      ],
+      example: {
+        title: 'Descuento en la tienda',
+        story: 'La tienda da 10% de descuento si la compra es de $50.000 o más.',
+        code: { lang: 'python', code: 'compra = int(input())\nif compra >= 50000:\n    print(compra - compra // 10)\nelse:\n    print(compra)', run: true, inputs: '80000' },
+        note: 'Prueba con 49999 y con 50000. El límite exacto importa: >= incluye el 50000.',
+      },
+      practice: [
+        { type: 'mcq', q: 'Con  x = 5 , ¿qué da  x > 3 and x < 4 ?', options: ['False', 'True', 'Un error'], answer: 0,
+          wrong: { 1: 'and exige que las dos se cumplan: 5 > 3 sí, pero 5 < 4 no.', 2: 'La expresión es válida; solo da falso.' }, explain: 'Con and, ambas deben ser verdaderas. 5 < 4 es falso, así que todo es False.', hints: ['Revisa cada lado por separado.'] },
+        { type: 'fill', q: 'Completa para decidir entre aprobar o no:', template: 'nota = 2.8\n___ nota >= 3.0:\n    print("Aprobada")\n___:\n    print("Reprobada")', blanks: [{ answers: ['if'], options: ['if', 'elif', 'else'] }, { answers: ['else'], options: ['if', 'elif', 'else'] }], explain: 'if abre la condición y else cubre todo lo demás.', hints: ['Primero se pregunta, luego se cubre el resto.'] },
+        { type: 'bug', q: 'Toca la línea que tiene el error:', code: 'edad = 20\nif edad = 18:\n    print("Tienes 18")', bugLine: 2, explain: 'En una condición se compara con ==, no con =. Debe ser if edad == 18:' },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: lee el total de una compra (entero). Si es de 50000 o más, muestra el total con 10% de descuento (total - total // 10); si no, muestra el total sin cambios.', starter: 'total = int(input())\n',
+        tests: [{ inputs: ['100000'], output: '90000' }, { inputs: ['50000'], output: '45000' }, { inputs: ['49999'], output: '49999' }],
+        checks: [{ re: '\\bif\\b', msg: 'Usa if para decidir.' }],
+        solution: 'total = int(input())\nif total >= 50000:\n    print(total - total // 10)\nelse:\n    print(total)', hints: ['Pregunta: total >= 50000', 'No olvides los dos puntos y la indentación.'], explain: 'El caso borde 50000 recibe descuento por usar >=. Con 49999 no hay descuento.' },
+      summary: ['if, elif y else eligen un camino según una condición.', 'Compara con ==, !=, <, >, <=, >=; no con un solo =.', 'and, or y not combinan condiciones; la indentación es obligatoria.'],
+    },
+    {
+      id: 'm2-l11', title: 'Ciclos for y while', emoji: '🔁', minutes: 9,
+      learn: [
+        { title: 'Repetir sin copiar y pegar', blocks: [
+          { t: 'p', text: 'Un **ciclo** repite un bloque de instrucciones varias veces. Así no tienes que escribir lo mismo muchas veces.' },
+          { t: 'analogy', text: 'Es como dar vueltas a la pista: no escribes "vuelta 1, vuelta 2..." en cada una, solo dices "da 5 vueltas".' },
+        ] },
+        { title: 'for: cuando sabes cuántas veces', blocks: [
+          { t: 'code', lang: 'python', code: 'for i in range(1, 4):\n    print("Vuelta", i)', run: true },
+          { t: 'tip', text: 'range(1, 4) produce 1, 2 y 3. El último número no se incluye.' },
+        ] },
+        { title: 'while: mientras se cumpla una condición', blocks: [
+          { t: 'code', lang: 'python', code: 'dinero = 10000\nwhile dinero >= 3000:\n    dinero = dinero - 3000\n    print("Compré, me quedan", dinero)', run: true },
+          { t: 'warn', text: 'Si la condición nunca deja de cumplirse, el ciclo no termina jamás (ciclo infinito).' },
+        ] },
+      ],
+      example: { title: 'Sumar gastos', story: 'Quieres sumar los números del 1 al 5 usando un acumulador.', code: { lang: 'python', code: 'total = 0\nfor n in range(1, 6):\n    total = total + n\nprint(total)', run: true }, note: 'total acumula: 1, 3, 6, 10, 15.' },
+      practice: [
+        { type: 'input', q: '¿Cuántas veces se ejecuta el print en: for i in range(5): print(i)?', answers: ['5'], explain: 'range(5) produce 0, 1, 2, 3 y 4: son 5 vueltas.', hints: ['range(5) empieza en 0.'] },
+        { type: 'fill', q: 'Completa el ciclo que muestra 1, 2 y 3:', template: 'for n in ___(1, 4):\n    print(n)', blanks: [{ answers: ['range'], options: ['range', 'list', 'while'] }], explain: 'range genera la secuencia de números.' },
+        { type: 'bug', q: 'Toca la línea con el error:', code: 'contador = 0\nwhile contador < 3\n    print(contador)\n    contador = contador + 1', bugLine: 2, explain: 'Falta el signo de dos puntos al final de la línea del while.' },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: lee un número n y muestra la tabla de multiplicar de ese número, del 1 al 5, una línea por resultado (solo el resultado).', starter: 'n = int(input())\n',
+        tests: [{ inputs: ['5'], output: '5\n10\n15\n20\n25' }, { inputs: ['2'], output: '2\n4\n6\n8\n10' }],
+        checks: [{ re: '\\bfor\\b|\\bwhile\\b', msg: 'Usa un ciclo.' }],
+        solution: 'n = int(input())\nfor i in range(1, 6):\n    print(n * i)', hints: ['Un for con range(1, 6).', 'print(n * i)'], explain: 'El ciclo da 5 vueltas y en cada una muestra n multiplicado por i.' },
+      summary: ['for repite un número conocido de veces.', 'while repite mientras se cumpla una condición.', 'Un acumulador guarda el resultado vuelta tras vuelta.'],
+    },
+    {
+      id: 'm2-l12', title: 'Listas', emoji: '📋', minutes: 8,
+      learn: [
+        { title: 'Muchos datos en una sola variable', blocks: [
+          { t: 'p', text: 'Una **lista** guarda varios datos juntos, en orden, dentro de corchetes.' },
+          { t: 'analogy', text: 'Es como la lista del mercado: una hoja con varios productos, cada uno en su renglón.' },
+          { t: 'code', lang: 'python', code: 'compras = ["arroz", "leche", "huevos"]\nprint(compras)', run: true },
+        ] },
+        { title: 'Posiciones y métodos', blocks: [
+          { t: 'p', text: 'Cada elemento tiene una **posición** (índice) que empieza en **0**.' },
+          { t: 'code', lang: 'python', code: 'compras = ["arroz", "leche", "huevos"]\nprint(compras[0])\ncompras.append("pan")\nprint(len(compras))', run: true },
+          { t: 'tip', text: 'append agrega al final y len cuenta los elementos.' },
+        ] },
+        { title: 'Recorrer una lista', blocks: [
+          { t: 'code', lang: 'python', code: 'notas = [4.0, 3.5, 5.0]\nfor nota in notas:\n    print(nota)', run: true },
+          { t: 'warn', text: 'Pedir una posición que no existe da IndexError.' },
+        ] },
+      ],
+      example: { title: 'Promedio de notas', story: 'Tienes tres notas y quieres calcular el promedio.', code: { lang: 'python', code: 'notas = [4.0, 3.0, 5.0]\nprint(sum(notas) / len(notas))', run: true }, note: 'sum suma todos los elementos y len los cuenta.' },
+      practice: [
+        { type: 'mcq', q: 'Si frutas = ["mango", "pera", "uva"], ¿qué muestra print(frutas[0])?', options: ['pera', 'mango', 'uva'], answer: 1, wrong: { 0: 'pera está en la posición 1.' }, explain: 'La primera posición es la 0.', hints: ['Se empieza a contar desde 0.'] },
+        { type: 'input', q: 'Si l = [10, 20, 30] y haces l.append(40), ¿cuánto muestra len(l)?', answers: ['4'], explain: 'Tenía 3 elementos y se agregó uno: 4.' },
+        { type: 'fill', q: 'Completa para agregar "pan" a la lista:', template: 'compras.___("pan")', blanks: [{ answers: ['append'], options: ['append', 'add', 'len'] }], explain: 'append agrega un elemento al final.' },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: dada la lista precios = [1500, 2500, 3000], muestra el total de la lista sumando con sum().', starter: 'precios = [1500, 2500, 3000]\n',
+        tests: [{ output: '7000' }], checks: [{ re: 'sum\\(', msg: 'Usa sum().' }],
+        solution: 'precios = [1500, 2500, 3000]\nprint(sum(precios))', hints: ['sum(lista) suma todos los elementos.'], explain: 'sum recorre la lista y suma todos sus valores: 1500 + 2500 + 3000 = 7000.' },
+      summary: ['Una lista guarda varios datos en orden.', 'Los índices empiezan en 0.', 'append, len y sum son tus aliados.'],
+    },
+    {
+      id: 'm2-l13', title: 'Funciones', emoji: '🧰', minutes: 9,
+      learn: [
+        { title: 'Recetas que puedes reutilizar', blocks: [
+          { t: 'p', text: 'Una **función** es un bloque de código con nombre que puedes usar muchas veces. Se crea con **def**.' },
+          { t: 'analogy', text: 'Es como una licuadora: le echas frutas (parámetros) y te devuelve un jugo (resultado) cada vez que la usas.' },
+        ] },
+        { title: 'Parámetros y return', blocks: [
+          { t: 'code', lang: 'python', code: 'def total(precio, cantidad):\n    return precio * cantidad\n\nprint(total(3500, 4))', run: true },
+          { t: 'tip', text: 'return entrega el resultado a quien llamó a la función.' },
+        ] },
+        { title: 'Por qué usarlas', blocks: [
+          { t: 'list', items: ['Evitas repetir código.', 'Tu programa queda ordenado.', 'Si hay un error, lo arreglas en un solo lugar.'] },
+          { t: 'warn', text: 'Definir una función no la ejecuta: tienes que llamarla.' },
+        ] },
+      ],
+      example: { title: 'Descuento reutilizable', story: 'Varios productos llevan el mismo descuento del 10 %.', code: { lang: 'python', code: 'def con_descuento(precio):\n    return precio - precio // 10\n\nprint(con_descuento(20000))\nprint(con_descuento(5000))', run: true }, note: 'La misma función sirve para cualquier precio.' },
+      practice: [
+        { type: 'mcq', q: '¿Qué palabra se usa para crear una función?', options: ['func', 'def', 'make'], answer: 1, explain: 'En Python las funciones se crean con def.' },
+        { type: 'fill', q: 'Completa la función que devuelve el doble:', template: 'def doble(n):\n    ___ n * 2', blanks: [{ answers: ['return'], options: ['return', 'print', 'def'] }], explain: 'return entrega el resultado.' },
+        { type: 'input', q: 'Si def suma(a, b): return a + b, ¿qué devuelve suma(4, 6)?', answers: ['10'], explain: '4 + 6 = 10.' },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: crea la función area(base, altura) que devuelva el área de un rectángulo. Luego lee base y altura y muestra su área.', starter: 'def area(base, altura):\n    pass\n',
+        tests: [{ inputs: ['4', '5'], output: '20' }, { inputs: ['10', '3'], output: '30' }],
+        checks: [{ re: 'return', msg: 'La función debe usar return.' }],
+        solution: 'def area(base, altura):\n    return base * altura\n\nb = int(input())\na = int(input())\nprint(area(b, a))', hints: ['Dentro de la función: return base * altura', 'Después llama a area con los datos leídos.'], explain: 'La función calcula; fuera de ella lees los datos y muestras el resultado.' },
+      summary: ['Una función se crea con def.', 'Recibe parámetros y devuelve con return.', 'Hay que llamarla para que funcione.'],
+    },
+    {
+      id: 'm2-l14', title: 'Errores comunes', emoji: '🐞', minutes: 9,
+      learn: [
+        { title: 'Equivocarse es normal', blocks: [
+          { t: 'p', text: 'Todas las programadoras cometen errores todos los días. Python te avisa con un **mensaje de error** que dice qué pasó y en qué línea.' },
+          { t: 'tip', text: 'Lee el mensaje de abajo hacia arriba: la última línea dice el tipo de error.' },
+        ] },
+        { title: 'Los errores más frecuentes', blocks: [
+          { t: 'table', head: ['Error', 'Qué significa', 'Ejemplo'], rows: [['SyntaxError', 'Escribiste mal la forma', 'if x > 3 (falta :)'], ['NameError', 'Usaste un nombre que no existe', 'print(totl)'], ['TypeError', 'Mezclaste tipos incompatibles', '"5" + 3'], ['IndentationError', 'La sangría está mal', 'print sin espacios dentro del if'], ['ValueError', 'Valor inválido para convertir', 'int("hola")']] },
+          { t: 'tip', text: 'Aprende a reconocer estos cinco: resuelven la mayoría de tus errores de principiante.' },
+        ] },
+        { title: 'Cómo arreglarlos', blocks: [
+          { t: 'steps', items: ['Lee el tipo de error.', 'Ve a la línea que indica.', 'Revisa ortografía, dos puntos y sangría.', 'Prueba de nuevo.'] },
+          { t: 'warn', text: 'A veces el error real está en la línea anterior a la que señala Python.' },
+        ] },
+      ],
+      example: { title: 'Un error de tipo', story: 'Intentas sumar un texto con un número.', code: { lang: 'python', code: 'edad = "20"\nprint(edad + 1)', run: false }, note: 'Da TypeError: la solución es int(edad) + 1.' },
+      practice: [
+        { type: 'match', q: 'Une cada error con su causa:', pairs: [['NameError', 'Nombre que no existe'], ['TypeError', 'Mezclar texto y número'], ['IndentationError', 'Sangría incorrecta'], ['SyntaxError', 'Falta un signo como :']], explain: 'Cada tipo de error apunta a un problema distinto.' },
+        { type: 'bug', q: 'Toca la línea con el error:', code: 'precio = 4500\ncantidad = 3\nprint(total)\nprint("fin")', bugLine: 3, explain: 'total nunca se creó: NameError. Falta total = precio * cantidad.' },
+        { type: 'mcq', q: 'int("hola") produce…', options: ['ValueError', 'NameError', 'IndentationError'], answer: 0, wrong: { 1: 'Todos los nombres existen; el problema es el valor.' }, explain: '"hola" no se puede convertir a número: ValueError.' },
+      ],
+      challenge: { type: 'code', lang: 'python', q: '🎯 Misión: corrige el programa para que muestre el total de 3 cuadernos de $4.500 (13500).', starter: 'precio = 4500\ncantidad = "3"\nprint(precio * cantidad)',
+        tests: [{ output: '13500' }], checks: [{ re: 'int\\(|cantidad\\s*=\\s*3', msg: 'Convierte la cantidad a número.' }],
+        solution: 'precio = 4500\ncantidad = int("3")\nprint(precio * cantidad)', hints: ['cantidad es un texto, no un número.', 'Usa int() para convertir.'], explain: 'Con cantidad como texto, 4500 * "3" repite texto. Con int queda el número 3.' },
+      summary: ['Los mensajes de error son pistas, no castigos.', 'Conoce SyntaxError, NameError, TypeError, IndentationError y ValueError.', 'Lee el error y ve a la línea indicada.'],
+    },
+  ],
+  exam: [
+    { lesson: 'm2-l1', type: 'mcq', q: '¿Qué es Python?', options: ['Un lenguaje de programación', 'Un navegador', 'Un sistema operativo'], answer: 0, explain: 'Python es un lenguaje de programación fácil de leer.' },
+    { lesson: 'm2-l3', type: 'tf', q: 'precio = 4500 guarda el valor 4500 en la variable precio.', answer: true, explain: 'El signo = significa "guarda en".' },
+    { lesson: 'm2-l4', type: 'mcq', q: '¿De qué tipo es el valor 3.5?', options: ['int', 'float', 'str'], answer: 1, explain: 'Los números con decimales son float.' },
+    { lesson: 'm2-l6', type: 'fill', q: 'Completa para leer un número entero:', template: 'edad = ___(input())', blanks: [{ answers: ['int'], options: ['int', 'str', 'print'] }], explain: 'input entrega texto; int lo convierte a número.' },
+    { lesson: 'm2-l8', type: 'input', q: '¿Cuánto da 17 // 5 en Python?', answers: ['3'], explain: '// es la división entera: 17 entre 5 es 3.' },
+    { lesson: 'm2-l9', type: 'mcq', q: 'Con nombre = "Ana", ¿qué muestra print(f"Hola {nombre}")?', options: ['Hola nombre', 'Hola Ana', 'Hola {nombre}'], answer: 1, explain: 'La f al inicio permite meter variables entre llaves.' },
+    { lesson: 'm2-l10', type: 'bug', q: 'Toca la línea con el error:', code: 'edad = 20\nif edad >= 18\n    print("Adulta")', bugLine: 2, explain: 'Falta el signo : al final del if.' },
+    { lesson: 'm2-l11', type: 'input', q: '¿Cuántas veces se repite: for i in range(3): print(i)?', answers: ['3'], explain: 'range(3) produce 0, 1 y 2.' },
+    { lesson: 'm2-l12', type: 'order', q: 'Ordena para crear una lista y mostrar su tamaño:', items: ['compras = []', 'compras.append("pan")', 'compras.append("leche")', 'print(len(compras))'], explain: 'Se crea, se agregan elementos y al final se cuenta.' },
+    { lesson: 'm2-l13', type: 'code', lang: 'python', q: 'Crea la función doble(n) que devuelva el doble de n y muestra doble(8).', starter: 'def doble(n):\n    pass\n', tests: [{ output: '16' }], checks: [{ re: 'return', msg: 'Usa return.' }], solution: 'def doble(n):\n    return n * 2\n\nprint(doble(8))', hints: ['return n * 2'], explain: 'La función devuelve el doble y luego se muestra al llamarla.' },
+  ],
+});
