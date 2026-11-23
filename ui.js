@@ -1,7 +1,7 @@
 /* Pantallas principales: mapa, mundos, lección y examen */
 (function () {
   const { h, md } = U; const st = () => PDC.store, S = () => PDC.store.S; const app = document.getElementById('app');
-  const UI = window.UI = {}; const AV = 'icons/avatar.png';
+  const UI = window.UI = {}; const AV = 'avatar.png';
   const PRAISE = ['¡Excelente!', '¡Muy bien, así se hace!', '¡Eso es!', '¡Correcto, lo lograste!', '¡Brillante!', '¡Vas muy bien!'];
   const OOPS = ['Casi. Mira con calma y vuelve a intentarlo.', 'No pasa nada: equivocarse es parte de aprender.', 'Todavía no, pero estás cerca. Respira y revisa otra vez.', 'Buen intento. Lee el enunciado de nuevo con tranquilidad.'];
   const nm = () => S().name || 'estudiante';
@@ -12,7 +12,7 @@
   /* ---------- estructura ---------- */
   function topbar() {
     const s = S();
-    return h('div', { class: 'topbar' }, h('div', { class: 'in' }, h('div', { class: 'brand', onclick: () => go('') }, h('img', { src: 'icons/logo-512.png', alt: '' }), h('span', null, 'Programando desde Cero')),
+    return h('div', { class: 'topbar' }, h('div', { class: 'in' }, h('div', { class: 'brand', onclick: () => go('') }, h('img', { src: 'logo-512.png', alt: '' }), h('span', null, 'Programando desde Cero')),
       h('div', { class: 'stat', 'data-k': 'streak', title: 'Racha de días' }, '🔥 ', h('span', null, s.streak.count)), h('div', { class: 'stat', 'data-k': 'coins', title: 'Monedas' }, '🪙 ', h('span', null, s.coins)), h('div', { class: 'stat', 'data-k': 'xp', title: 'Puntos de experiencia' }, '⚡ ', h('span', null, s.xp))));
   }
   UI.refreshTop = () => { const s = S(); [['streak', s.streak.count], ['coins', s.coins], ['xp', s.xp]].forEach(([k, v]) => { const e = document.querySelector('.stat[data-k=' + k + '] span'); if (e) e.textContent = v; }); };

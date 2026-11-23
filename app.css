@@ -1,9 +1,9 @@
-@font-face{font-family:Nunito;font-weight:400;src:url(../fonts/nunito-latin-400-normal.woff2) format('woff2');font-display:swap}
-@font-face{font-family:Nunito;font-weight:700;src:url(../fonts/nunito-latin-700-normal.woff2) format('woff2');font-display:swap}
-@font-face{font-family:Nunito;font-weight:800;src:url(../fonts/nunito-latin-800-normal.woff2) format('woff2');font-display:swap}
-@font-face{font-family:Nunito;font-weight:900;src:url(../fonts/nunito-latin-900-normal.woff2) format('woff2');font-display:swap}
-@font-face{font-family:'JetBrains Mono';font-weight:400;src:url(../fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2');font-display:swap}
-@font-face{font-family:'JetBrains Mono';font-weight:700;src:url(../fonts/jetbrains-mono-latin-700-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Nunito;font-weight:400;src:url(nunito-latin-400-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Nunito;font-weight:700;src:url(nunito-latin-700-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Nunito;font-weight:800;src:url(nunito-latin-800-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Nunito;font-weight:900;src:url(nunito-latin-900-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:'JetBrains Mono';font-weight:400;src:url(jetbrains-mono-latin-400-normal.woff2) format('woff2');font-display:swap}
+@font-face{font-family:'JetBrains Mono';font-weight:700;src:url(jetbrains-mono-latin-700-normal.woff2) format('woff2');font-display:swap}
 :root{--bg:#f6f4ff;--bg2:#ece8ff;--card:#fff;--ink:#1b1f4b;--muted:#6b6f93;--line:#e0dcf5;--brand:#8b5cf6;--brand2:#6d3df0;--pink:#f472b6;--gold:#fbbf24;--good:#16a34a;--goodbg:#e7f9ee;--bad:#dc2626;--badbg:#fdecec;--code:#14173a;--codeink:#e8e9ff;--shadow:0 6px 18px rgba(80,60,160,.12);--r:18px;--nav:64px}
 :root[data-theme=dark]{--bg:#0f1130;--bg2:#171a42;--card:#1c2050;--ink:#eef0ff;--muted:#a3a8d6;--line:#2c316e;--brand:#a78bfa;--brand2:#8b5cf6;--goodbg:#10351f;--badbg:#3b1717;--code:#0a0c24;--shadow:0 6px 18px rgba(0,0,0,.35)}
 @media(prefers-color-scheme:dark){:root[data-theme=auto]{--bg:#0f1130;--bg2:#171a42;--card:#1c2050;--ink:#eef0ff;--muted:#a3a8d6;--line:#2c316e;--brand:#a78bfa;--brand2:#8b5cf6;--goodbg:#10351f;--badbg:#3b1717;--code:#0a0c24;--shadow:0 6px 18px rgba(0,0,0,.35)}}

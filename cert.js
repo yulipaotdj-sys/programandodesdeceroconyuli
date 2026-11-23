@@ -17,7 +17,7 @@
     const S = PDC.store.S, c = ensureCert(), s = stats(); const cv = document.createElement('canvas'); cv.width = W; cv.height = H; const g = cv.getContext('2d');
     const gr = g.createLinearGradient(0, 0, W, H); gr.addColorStop(0, '#fbf9ff'); gr.addColorStop(1, '#efe9ff'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
     g.lineWidth = 14; g.strokeStyle = '#6d3df0'; g.strokeRect(36, 36, W - 72, H - 72); g.lineWidth = 3; g.strokeStyle = '#f472b6'; g.strokeRect(60, 60, W - 120, H - 120); g.strokeStyle = '#fbbf24'; g.lineWidth = 2; g.strokeRect(70, 70, W - 140, H - 140);
-    const logo = await img('icons/logo-512.png'); if (logo) g.drawImage(logo, W / 2 - 90, 92, 180, 180);
+    const logo = await img('logo-512.png'); if (logo) g.drawImage(logo, W / 2 - 90, 92, 180, 180);
     g.textAlign = 'center'; g.fillStyle = '#1b1f4b'; g.font = '900 64px Nunito, sans-serif'; g.fillText('CERTIFICADO DE FINALIZACIÓN', W / 2, 340);
     g.font = '700 28px Nunito, sans-serif'; g.fillStyle = '#6b6f93'; g.fillText('Se otorga con orgullo a', W / 2, 392);
     g.fillStyle = '#6d3df0'; g.font = 'italic 900 84px Nunito, serif'; let nm = S.name || 'Estudiante'; while (g.measureText(nm).width > W - 300 && g.font) { g.font = g.font.replace(/(\d+)px/, (m, n) => (n - 4) + 'px'); if (parseInt(g.font.match(/(\d+)px/)[1]) < 40) break; } g.fillText(nm, W / 2, 490);
